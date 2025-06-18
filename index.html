@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobNest</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/stylesheet.css">
+  
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-2 sidebar">
+        <div class="text-center d-flex flex-column align-items-center">
+          <img src="css/img/jobnest.png" alt="Company Logo" class="img-fluid mb-2" style="max-height: 200px;">
+        </div>
+
+        <a href="#">User Dashboard</a>
+        <a href="#">User Profile</a>
+        <a href="#">My Jobs</a>
+        <a href="#">Submit Jobs</a>
+        <a href="#">Applicants Jobs</a>
+        <a href="#">Shortlisted Candidates</a>
+        <a href="#">Package</a>
+        <a href="#">Messages</a>
+        <a href="#">Change Password</a>
+        <a href="#">Delete Account</a>
+        <a href="#" class="text-danger">Log Out</a>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-md-10">
+        <div class="topbar d-flex justify-content-between align-items-center p-3 bg-dark text-white">
+          <div>
+            <span><i class="fas fa-bars me-3"></i>For Candidate</span>
+            <span class="ms-4">For Employer</span>
+            <span class="ms-4">Pages</span>
+            <span class="ms-4">Help</span>
+          </div>
+          <div>
+            <button class="btn btn-post-job">Post Your Job</button>
+          </div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="p-4" id="step1">
+          <h4>Post Jobs</h4>
+          <div class="card shadow-sm rounded">
+            <div class="card-header">
+              <h5 class="card-title" >Basic Detail</h5>
+
+              <!-- Job Title -->
+              <div class="mb-3">
+                <label class="form-label">Job Title</label>
+                <input type="text" class="form-control" placeholder="e.g. Senior UI/UX Designer">
+              </div>
+
+              <!-- Responsibilities -->
+              <div class="mb-3">
+                <label class="form-label">Responsibilities</label>
+                <textarea class="form-control" rows="4" placeholder="Type something..."></textarea>
+              </div>
+
+              <!-- Qualifications -->
+              <div class="mb-3">
+                <label class="form-label">Qualifications</label>
+                <textarea class="form-control" rows="4" placeholder="Type something..."></textarea>
+              </div>
+
+              <button class="btn btn-success" id="nextButton" style="background-color: antiquewhite; color: #00192D;">Next</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="step2" style="display: none;" class="p-4">
+          <div class="card shadow-sm rounded">
+            <div class="card-header">
+              <h5 class="mb-0">Job Details</h5>
+            </div>
+            <div class="card-body">
+              <form id="jobDetailsForm">
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Job Category</label>
+                    <input type="text" class="form-control" name="job_category" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Job Type</label>
+                    <input type="text" class="form-control" name="job_type" required>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Job Level</label>
+                    <input type="text" class="form-control" name="job_level">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Experience</label>
+                    <input type="text" class="form-control" name="experience">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Qualification</label>
+                    <input type="text" class="form-control" name="qualification">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Preferred Gender</label>
+                    <select class="form-select" name="gender">
+                      <option selected disabled>Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Min Salary</label>
+                    <input type="number" class="form-control" name="min_salary" placeholder="KES">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Max Salary</label>
+                    <input type="number" class="form-control" name="max_salary" placeholder="KES">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Start Date</label>
+                    <input type="date" class="form-control" name="start_date">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Application Deadline</label>
+                    <input type="date" class="form-control" name="deadline">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Total Openings</label>
+                    <input type="number" class="form-control" name="total_openings">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Job Fee Type</label>
+                    <select class="form-select" name="job_fee_type">
+                      <option selected disabled>Select Fee Type</option>
+                      <option value="Free">Free</option>
+                      <option value="Paid">Paid</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Skills (comma-separated)</label>
+                  <textarea class="form-control" name="skills" rows="2" placeholder="e.g., HTML, CSS, JavaScript, PHP"></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Permanent Address</label>
+                  <input type="text" class="form-control" name="permanent_address">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Temporary Address</label>
+                  <input type="text" class="form-control" name="temporary_address">
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <label class="form-label">Country</label>
+                    <input type="text" class="form-control" name="country">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label">State/City</label>
+                    <input type="text" class="form-control" name="state_city">
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label">Zip Code</label>
+                    <input type="text" class="form-control" name="zip_code">
+                  </div>
+                </div>
+
+                  <div class="d-flex justify-content-between mt-4">
+          <button type="button" class="btn btn-sucess" id="backToStep1" style="background-color: red; color: white;">Back</button>
+          <button type="button" class="btn btn-success" id="nextToStep3" style="background-color: antiquewhite;color:#00192D;">Next</button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+<div id="step3" style="display: none;" class="p-4">
+  <div class="card shadow-sm rounded">
+    <div class="card-header">
+      <h5 class="mb-0">Step 3: More Info</h5>
+    </div>
+    <div class="card-body">
+      <!-- Your Step 3 content goes here -->
+      <p>Step 3 content coming soon...</p>
+    </div>
+  </div>
+</div>
+
+
+      </div> <!-- end of col-md-10 -->
+    </div> <!-- end of row -->
+  </div> <!-- end of container -->
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const step1 = document.getElementById("step1");
+    const step2 = document.getElementById("step2");
+    const step3 = document.getElementById("step3");
+
+    const nextBtn1 = document.getElementById("nextButton"); // Step 1 > Step 2
+    const backBtn2 = document.getElementById("backToStep1"); // Step 2 > Step 1
+    const nextBtn2 = document.getElementById("nextToStep3"); // Step 2 > Step 3
+
+    if (nextBtn1) {
+      nextBtn1.addEventListener("click", function () {
+        step1.style.display = "none";
+        step2.style.display = "block";
+        step2.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+
+    backBtn2.addEventListener("click", function () {
+      step2.style.display = "none";
+      step1.style.display = "block";
+      step1.scrollIntoView({ behavior: "smooth" });
+    });
+
+    nextBtn2.addEventListener("click", function () {
+      step2.style.display = "none";
+      step3.style.display = "block";
+      step3.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+</script>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
